@@ -11,9 +11,30 @@
 <!-- Poppins -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-
+<script src="main.js"></script>
 <body>
+<body>
+  <!-- PAGE DE CHARGEMENT -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loader">
+      <!-- Animation avion -->
+      <div class="plane">
+        <div class="wing left-wing"></div>
+        <div class="wing right-wing"></div>
+        <div class="plane-body"></div>
+      </div>
+      
+      <!-- Texte -->
+      <p class="loading-text">Préparez votre voyage...</p>
+      
+      <!-- Barre de progression -->
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+    </div>
+  </div>
 
+  
   <header class="header">
     <nav class="nav">
       <div class="logo">
@@ -27,10 +48,10 @@
         </a>
       </li>
 
-      <li>
-        <a href="https://example.com/search" target="_blank">
-          <img src="Asset/icons/search.png" alt="Rechercher" class="nav-icon">
-        </a>
+      <li class="search-container">
+        <button class="search-btn" id="searchBtn">
+          <img src="Asset/icons/search.png" alt="Rechercher" class="nav-icon search-icon">
+        </button>
       </li>
 
       <li>
@@ -39,36 +60,64 @@
         </a>
       </li>
 
-      <li>
-        <a href="https://example.com/menu" target="_blank">
-          <img src="Asset/icons/menu.png" alt="Menu" class="nav-icon">
-        </a>
+      <li class="burger-container">
+        <button class="burger-btn" id="burgerBtn">
+          <img src="Asset/icons/menu.png" alt="Menu" class="nav-icon burger-icon">
+        </button>
       </li>
     </ul>
     </nav>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#">Accueil</a>
+      <a href="#">Destinations</a>
+      <a href="#">Avantages</a>
+      <a href="#">Comment ça marche</a>
+      <a href="#">Témoignages</a>
+      <a href="#">Contact</a>
+    </div>
+<div class="menu-overlay" id="menuOverlay"></div>
   </header>
 
   <main>
 
-    <section class="hero">
-      <img src="Asset/hero/image-hero.jpg" alt="Hero Background" class="hero-background">
+ <section class="hero">
+  <!-- Carrousel d'images -->
+  <div class="hero-carousel">
+    <!-- Image 1 -->
+    <div class="carousel-slide slide-1 active">
+      <img src="Asset/hero/image-hero.jpg" alt="Destination 1" class="carousel-img">
+    </div>
+    
+    <!-- Image 2 -->
+    <div class="carousel-slide slide-2">
+      <img src="Asset/hero/image-hero2.jpg" alt="Destination 2" class="carousel-img">
+    </div>
+    
+    <!-- Image 3 -->
+    <div class="carousel-slide slide-3">
+      <img src="Asset/hero/image-hero3.jpg" alt="Destination 3" class="carousel-img">
+    </div>
+    
+    <!-- Points indicateurs -->
+    <div class="carousel-dots">
+      <span class="dot active" data-slide="0"></span>
+      <span class="dot" data-slide="1"></span>
+      <span class="dot" data-slide="2"></span>
+    </div>
+  </div>
 
-      <div class="hero-content">
-         <!-- Titre avec bordure -->
-         <h1 class="hero-title">Trouve ton next spot,<span> partout dans le monde.</span></h1>
-
-        <!-- Descriptions -->
-        <p class="hero-description">
-           Déniche des lieux uniques, booke en quelques secondes, voyage comme tu veux.
-        </p>
-
-    <!-- Boutons CTA -->
-        <div class="hero-buttons">
-            <a href="#cta1" class="btn btn-primary">Réservation</a>
-            <a href="#cta2" class="btn btn-secondary">plus d'infos</a>
-        </div>
-      </div>
-    </section>
+  <!-- Contenu hero (inchangé) -->
+  <div class="hero-content">
+    <h1 class="hero-title">Trouve ton next spot,<span> partout dans le monde.</span></h1>
+    <p class="hero-description">
+      Déniche des lieux uniques, booke en quelques secondes, voyage comme tu veux.
+    </p>
+    <div class="hero-buttons">
+      <a href="#cta1" class="btn btn-primary">Réservation</a>
+      <a href="#cta2" class="btn btn-secondary">plus d'infos</a>
+    </div>
+  </div>
+</section>
 
 <section class="advantages">
   <div class="container">

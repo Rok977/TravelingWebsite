@@ -291,16 +291,18 @@ box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  width:40%;
   padding: 0 2rem;
   border-radius: 12px;     /* coins arrondis */
   background: rgba(255, 255, 255, 0.2); /* fond semi-transparent */
   backdrop-filter: blur(10px);          /* effet flou derrière */
   -webkit-backdrop-filter: blur(10px);  /* support Safari */
-  margin: 0 3rem;
+  margin: 0 5rem;
   padding: 1rem 1rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   position: absolute; /* simple, pas absolute */
   z-index: 0;
+  
 }
 
 .hero-title {
@@ -1163,3 +1165,291 @@ footer .container {
     transform: none;
   }
 }
+
+
+/* ===== BOUTON BURGER ===== */
+.burger-btn {
+  background: none;     /* Pas de fond */
+  border: none;         /* Pas de bordure */
+  cursor: pointer;      /* Curseur main */
+  padding: 0;           /* Pas d'espace interne */
+}
+
+/* Animation de l'icône quand on clique */
+.burger-btn.active .burger-icon {
+  transform: rotate(90deg); /* Tourne de 90 degrés */
+}
+
+/* ===== MENU DÉROULANT ===== */
+.mobile-menu {
+  display: flex;        /* Disposition verticale */
+  flex-direction: column;
+  position: fixed;      /* Fixe par rapport à l'écran */
+  top: 0;               /* En haut */
+  right: -100%;         /* CACHÉ à droite (hors écran) */
+  width: 250px;         /* Largeur du menu */
+  height: 100vh;        /* Hauteur complète de l'écran */
+  background: #001219;  /* Couleur de fond (ton noir) */
+  padding: 80px 30px 30px;
+  transition: right 0.4s ease; /* Animation pour déplacer */
+  z-index: 1000;        /* Au-dessus de tout */
+}
+
+/* Quand le menu est actif */
+.mobile-menu.active {
+  right: 0;  /* AFFICHÉ : vient de la droite */
+}
+
+/* ===== LIENS DU MENU ===== */
+.mobile-menu a {
+  padding: 15px 0;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  opacity: 0;           /* Invisible au départ */
+  transform: translateX(20px); /* Décalé vers la droite */
+}
+
+/* Animation quand le menu s'ouvre */
+.mobile-menu.active a {
+  opacity: 1;           /* Devient visible */
+  transform: translateX(0); /* Revient en place */
+}
+
+
+/* ==========================================
+   CARROUSEL HERO
+========================================== */
+
+/* Conteneur principal */
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  height: 35.25rem; /* 564px / 16 */
+  overflow: hidden;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Slides */
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+/* Images des slides */
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Points indicateurs */
+.carousel-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: #F25A1A;
+  transform: scale(1.2);
+}
+
+/* Position du contenu hero par-dessus le carrousel */
+.hero-content {
+  position: absolute;
+  z-index: 5;
+  /* Les autres styles restent les mêmes */
+}
+
+/* ==========================================
+   RESPONSIVE CARROUSEL
+========================================== */
+
+@media (max-width: 1024px) {
+  .hero-carousel {
+    height: 25rem;
+  }
+  
+
+  }
+  
+
+  
+
+@media (max-width: 768px) {
+  .hero-carousel {
+    height: 20rem;
+  }
+  
+
+  
+  .carousel-dots {
+    bottom: 10px;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* ==========================================
+   PAGE DE CHARGEMENT
+========================================== */
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF; /* FOND BLANC */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.loading-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Conteneur du loader */
+.loader {
+  text-align: center;
+  max-width: 300px;
+  padding: 2rem;
+}
+
+/* Animation avion */
+.plane {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 2rem;
+  animation: fly 2s infinite ease-in-out;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
+}
+
+.wing {
+  position: absolute;
+  background: #F25A1A; /* Orange */
+  border-radius: 3px;
+}
+
+.left-wing {
+  width: 50px;
+  height: 15px;
+  top: 40px;
+  left: 15px;
+  transform: rotate(-20deg);
+}
+
+.right-wing {
+  width: 50px;
+  height: 15px;
+  top: 40px;
+  right: 15px;
+  transform: rotate(20deg);
+}
+
+.plane-body {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 30px;
+  background: #F25A1A; /* Orange */
+  border-radius: 50% 50% 10px 10px;
+}
+
+/* Texte */
+.loading-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+  animation: pulse 1.5s infinite;
+  color: #333333; /* Gris foncé */
+}
+
+/* Barre de progression */
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.1); /* Gris très clair */
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  background: #F25A1A; /* Orange */
+  border-radius: 2px;
+  animation: loading 2.5s ease-in-out;
+}
+
+/* Animations (restent identiques) */
+@keyframes fly {
+  0%, 100% {
+    transform: translateY(0) rotate(0);
+  }
+  25% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+  75% {
+    transform: translateY(5px) rotate(-3deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes loading {
+  0% {
+    width: 0%;
+  }
+  70% {
+    width: 90%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
