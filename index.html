@@ -11,9 +11,30 @@
 <!-- Poppins -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-
+<script src="main.js"></script>
 <body>
+<body>
+  <!-- PAGE DE CHARGEMENT -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loader">
+      <!-- Animation avion -->
+      <div class="plane">
+        <div class="wing left-wing"></div>
+        <div class="wing right-wing"></div>
+        <div class="plane-body"></div>
+      </div>
+      
+      <!-- Texte -->
+      <p class="loading-text">Préparez votre voyage...</p>
+      
+      <!-- Barre de progression -->
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+    </div>
+  </div>
 
+  
   <header class="header">
     <nav class="nav">
       <div class="logo">
@@ -22,53 +43,81 @@
 
     <ul class="nav-links">
       <li>
-        <a href="https://example.com/home" target="_blank">
+        <a href="#home" target="_blank">
           <img src="Asset/icons/home.png" alt="Accueil" class="nav-icon">
         </a>
       </li>
 
-      <li>
-        <a href="https://example.com/search" target="_blank">
-          <img src="Asset/icons/search.png" alt="Rechercher" class="nav-icon">
-        </a>
+      <li class="search-container">
+        <button class="search-btn" id="searchBtn">
+          <img src="Asset/icons/search.png" alt="Rechercher" class="nav-icon search-icon">
+        </button>
       </li>
 
       <li>
-        <a href="https://example.com/user" target="_blank">
+        <a href="404.html" target="_blank">
           <img src="Asset/icons/user.png" alt="Profil" class="nav-icon">
         </a>
       </li>
 
-      <li>
-        <a href="https://example.com/menu" target="_blank">
-          <img src="Asset/icons/menu.png" alt="Menu" class="nav-icon">
-        </a>
+      <li class="burger-container">
+        <button class="burger-btn" id="burgerBtn">
+          <img src="Asset/icons/menu.png" alt="Menu" class="nav-icon burger-icon">
+        </button>
       </li>
     </ul>
     </nav>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#">Accueil</a>
+      <a href="#">Destinations</a>
+      <a href="#">Avantages</a>
+      <a href="#">Comment ça marche</a>
+      <a href="#">Témoignages</a>
+      <a href="#">Contact</a>
+    </div>
+<div class="menu-overlay" id="menuOverlay"></div>
   </header>
 
   <main>
 
-    <section class="hero">
-      <img src="Asset/hero/image-hero.jpg" alt="Hero Background" class="hero-background">
+ <section class="hero">
+  <!-- Carrousel d'images -->
+  <div class="hero-carousel">
+    <!-- Image 1 -->
+    <div class="carousel-slide slide-1 active">
+      <img src="Asset/hero/image-hero.jpg" alt="Destination 1" class="carousel-img">
+    </div>
+    
+    <!-- Image 2 -->
+    <div class="carousel-slide slide-2">
+      <img src="Asset/hero/image-hero2.jpg" alt="Destination 2" class="carousel-img">
+    </div>
+    
+    <!-- Image 3 -->
+    <div class="carousel-slide slide-3">
+      <img src="Asset/hero/image-hero3.jpg" alt="Destination 3" class="carousel-img">
+    </div>
+    
+    <!-- Points indicateurs -->
+    <div class="carousel-dots">
+      <span class="dot active" data-slide="0"></span>
+      <span class="dot" data-slide="1"></span>
+      <span class="dot" data-slide="2"></span>
+    </div>
+  </div>
 
-      <div class="hero-content">
-         <!-- Titre avec bordure -->
-         <h1 class="hero-title">Trouve ton next spot,<span> partout dans le monde.</span></h1>
-
-        <!-- Descriptions -->
-        <p class="hero-description">
-           Déniche des lieux uniques, booke en quelques secondes, voyage comme tu veux.
-        </p>
-
-    <!-- Boutons CTA -->
-        <div class="hero-buttons">
-            <a href="#cta1" class="btn btn-primary">Réservation</a>
-            <a href="#cta2" class="btn btn-secondary">plus d'infos</a>
-        </div>
-      </div>
-    </section>
+  <!-- Contenu hero (inchangé) -->
+  <div class="hero-content">
+    <h1 class="hero-title">Trouve ton next spot,<span> partout dans le monde.</span></h1>
+    <p class="hero-description">
+      Déniche des lieux uniques, booke en quelques secondes, voyage comme tu veux.
+    </p>
+    <div class="hero-buttons">
+      <a href="404.html" class="btn btn-primary">Réservation</a>
+      <a href="404.html" class="btn btn-secondary">plus d'infos</a>
+    </div>
+  </div>
+</section>
 
 <section class="advantages">
   <div class="container">
@@ -122,35 +171,49 @@
     </div>
 
     <!-- Cartes destinations -->
-    <div class="cards">
-      <div class="dest-card">
-        <img src="Asset/destinations/Lisbonne.png" alt="Lisbonne">
-        <h3 class="card-title">Lisbonne</h3>
-        <p class="card-desc">rooftops, soleil, remote life.</p>
-      </div>
+<!-- Modifie chaque dest-card pour les rendre cliquables -->
 
-      <div class="dest-card">
-        <img src="Asset/destinations/Tokyo.png" alt="Tokyo">
-        <h3 class="card-title">Tokyo</h3>
-        <p class="card-desc"> culture, food, néons partout.</p>
-      </div>
-
-      <div class="dest-card">
-        <img src="Asset/destinations/Marrakech.png" alt="Marrakech">
-        <h3 class="card-title">Marrakech</h3>
-        <p class="card-desc">Brève description de la destination.</p>
-      </div>
-
-      <div class="dest-card">
-        <img src="Asset/destinations/Bali.png" alt="Bali">
-        <h3 class="card-title">Bali</h3>
-        <p class="card-desc">Brève description de la destination.</p>
-      </div>
+<div class="cards">
+  <!-- Lisbonne -->
+  <a href="404.html" class="dest-card-link">
+    <div class="dest-card">
+      <img src="Asset/destinations/Lisbonne.png" alt="Lisbonne">
+      <h3 class="card-title">Lisbonne</h3>
+      <p class="card-desc">rooftops, soleil, remote life.</p>
     </div>
+  </a>
+
+  <!-- Tokyo -->
+  <a href="404.html" class="dest-card-link">
+    <div class="dest-card">
+      <img src="Asset/destinations/Tokyo.png" alt="Tokyo">
+      <h3 class="card-title">Tokyo</h3>
+      <p class="card-desc">culture, food, néons partout.</p>
+    </div>
+  </a>
+
+  <!-- Marrakech -->
+  <a href="404.html" class="dest-card-link">
+    <div class="dest-card">
+      <img src="Asset/destinations/Marrakech.png" alt="Marrakech">
+      <h3 class="card-title">Marrakech</h3>
+      <p class="card-desc">médinas, souks, couchers de soleil.</p>
+    </div>
+  </a>
+
+  <!-- Bali -->
+  <a href="404.html" class="dest-card-link">
+    <div class="dest-card">
+      <img src="Asset/destinations/Bali.png" alt="Bali">
+      <h3 class="card-title">Bali</h3>
+      <p class="card-desc">plages, rizières, spiritualité.</p>
+    </div>
+  </a>
+</div>
 
     <!-- Voir plus -->
     <div class="more-link">
-      <a href="#more">Voir plus de logements</a>
+      <a href="404.html">Voir plus de logements</a>
     </div>
   </div>
 </section>
@@ -195,9 +258,9 @@
 </section>
 
 
-   <section class="testimonials">
+ <section class="testimonials">
   <div class="container">
-    <!-- Titre en 3 frames -->
+    <!-- Titre -->
     <div class="testimonials-header">
       <div class="frame-left"></div>
       <div class="frame-center">
@@ -206,26 +269,61 @@
       <div class="frame-right"></div>
     </div>
 
-    <!-- Avis -->
-    <div class="testimonials-cards">
-      <!-- Avis 1 -->
-      <div class="testimonial-card">
-        <img src="Asset/Avatar/Avatar1.png" alt="Client 1" class="testimonial-avatar">
-        <div class="testimonial-stars">
-          ⭐⭐⭐⭐⭐
+    <!-- Carrousel d'avis -->
+    <div class="testimonials-carousel">
+      <!-- Conteneur des slides -->
+      <div class="testimonials-slides">
+        <!-- Avis 1 -->
+        <div class="testimonial-slide active">
+          <div class="testimonial-card">
+            <img src="Asset/Avatar/Avatar1.png" alt="Client 1" class="testimonial-avatar">
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+            <div class="testimonial-text">“Expérience fluide, logements irréprochables. J’ai booké en 2 minutes, rien à redire.”</div>
+            <div class="testimonial-author">- Nathan, 32 ans</div>
+          </div>
         </div>
-        <div class="testimonial-text">“Expérience fluide, logements irréprochables. J’ai booké en 2 minutes, rien à redire.”</div>
-        <div class="testimonial-author">- Nathan, 32 ans</div>
+
+        <!-- Avis 2 -->
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <img src="Asset/Avatar/Avatar2.png" alt="Client 2" class="testimonial-avatar">
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+            <div class="testimonial-text">"Une expérience incroyable, équipe super sympa. Je recommande à 100% !"</div>
+            <div class="testimonial-author">- Sarah, 27 ans</div>
+          </div>
+        </div>
+
+        <!-- Avis 3 (nouveau) -->
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <img src="Asset/Avatar/Avatar1.png" alt="Client 3" class="testimonial-avatar">
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+            <div class="testimonial-text">"Le meilleur site pour organiser mes voyages. Simple, rapide, efficace."</div>
+            <div class="testimonial-author">- Thomas, 29 ans</div>
+          </div>
+        </div>
+
+        <!-- Avis 4 (nouveau) -->
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <img src="Asset/Avatar/Avatar2.png" alt="Client 4" class="testimonial-avatar">
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+            <div class="testimonial-text">"Service client réactif, choix de destinations impressionnant. 5 étoiles !"</div>
+            <div class="testimonial-author">- Marie, 35 ans</div>
+          </div>
+        </div>
       </div>
 
-      <!-- Avis 2 -->
-      <div class="testimonial-card">
-        <img src="Asset/Avatar/Avatar2.png" alt="Client 2" class="testimonial-avatar">
-        <div class="testimonial-stars">
-          ⭐⭐⭐⭐⭐
-        </div>
-        <div class="testimonial-text">Une expérience incroyable, équipe super sympa.</div>
-        <div class="testimonial-author">- Sarah, 27 ans </div>
+      <!-- Flèches de navigation -->
+      <button class="testimonial-arrow prev-arrow" aria-label="Avis précédent">‹</button>
+      <button class="testimonial-arrow next-arrow" aria-label="Avis suivant">›</button>
+
+      <!-- Points indicateurs -->
+      <div class="testimonial-dots">
+        <span class="testimonial-dot active" data-slide="0"></span>
+        <span class="testimonial-dot" data-slide="1"></span>
+        <span class="testimonial-dot" data-slide="2"></span>
+        <span class="testimonial-dot" data-slide="3"></span>
       </div>
     </div>
   </div>
@@ -244,7 +342,7 @@
       <!-- Frame description + bouton -->
       <div class="cta-bottom-frame">
         <p class="cta-description">Ne perdez plus de temps et réservez dès maintenant votre logement idéal !</p>
-        <a href="#booking" class="cta-button">Réserver maintenant</a>
+        <a href="404.html" class="cta-button">Réserver maintenant</a>
       </div>
     </div>
  </div>
