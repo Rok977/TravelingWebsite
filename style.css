@@ -696,22 +696,23 @@ height:100%;}
 
 footer .container {
   display: flex;
-  gap: 40px;
+  gap: 15rem;
   flex-direction: row;
+  justify-content: center;
 }
 .footer-logo {}
 .footer-links {
   display: flex;
-  gap: 20px;
+  gap: 1.5rem;
   flex-direction: column;
 }
 .footer-socials {
   display: flex;
-  gap: 10px;
+  gap: 1rem;
   flex-direction: column;
 }
 .footer-copy {
-  margin-top: 20px;
+  margin-top: 1.5rem;
   font-size: 12px;
   text-align: center;
 }
