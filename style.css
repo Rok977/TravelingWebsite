@@ -37,6 +37,47 @@ p{
 }
 
 
+  /* Menu mobile */
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100vh;
+    background: #001219;
+    padding: 80px 30px 30px;
+    transition: right 0.4s ease;
+    z-index: 1000;
+  }
+  
+  .mobile-menu.active {
+    right: 0;
+  }
+  
+  .mobile-menu a {
+    padding: 15px 0;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  
+  .mobile-menu.active a {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .logo h2 {
+  font-family: "Mrs Sheppards", cursive;
+  font-weight: 400;
+  font-style: normal;
+  color: #D9430F;
+  }
+
 /* ==========================================
    EFFETS HOVER - BOUTONS
 ========================================== */
@@ -47,6 +88,7 @@ p{
   transform: translateY(-3px); /* Légère élévation */
   box-shadow: 0 8px 20px rgba(242, 90, 26, 0.4); /* Ombre portée */
 }
+
 
 /* Bouton secondaire (bordure) - "plus d'infos" */
 .btn-secondary:hover {
@@ -80,7 +122,6 @@ p{
 
 /* Effet sur les icônes elles-mêmes */
 .nav-icon:hover {
-  filter: brightness(1.3) drop-shadow(0 4px 8px rgba(242, 90, 26, 0.3));
   transform: scale(1.1); /* L'icône grossit un peu */
 }
 
@@ -355,7 +396,7 @@ box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 
 }
 
-.container {}
+
 
 .advantages-header {
   display: grid;
@@ -426,10 +467,6 @@ box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 /* ==========================================
    DESTINATIONS
 ========================================== */
-.destinations {
-}
-
-.destinations .container {}
 
 .destination-header {
     display: grid;
@@ -717,9 +754,122 @@ footer .container {
   text-align: center;
 }
 
+/* ========================================== */
+/*  CORRECTIONS POUR LE SEARCH DROPDOWN      */
+/* ========================================== */
+
+/* 1. Reset du bouton search */
+.search-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  outline: none; /* Enlève le contour bleu au focus */
+}
+
+/* Enlève l'effet de focus par défaut */
+.search-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* 2. Positionnement du dropdown PAR RAPPORT À LA NAV */
+.search-container {
+  position: relative; /* IMPORTANT : sert d'ancrage pour le dropdown */
+}
+
+/* 3. Style du dropdown */
+#searchDropdown {
+  display: none;
+  position: relative;
+  top: 100%; /* Commence juste en dessous du conteneur */
+  right: 0;
+  padding: 1rem 5rem;
+  z-index: 999;
+  border-radius: 10px;
+  max-width: 100%;
+  margin-top: 1rem; /* Petit espace entre le bouton et le dropdown */
+
+}
+
+#searchDropdown.active {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 4. Style du formulaire dans le dropdown */
+#searchDropdown form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0rem 10rem;
+}
+
+/* Destination prend 70% */
+#searchDropdown input[type="text"] {
+  flex: 0 0 70%; /* 70% de largeur */
+  padding: 12px;
+  border: 2px solid #F25A1A;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+/* Date prend 30% */
+#searchDropdown input[type="date"] {
+  flex: 0 0 30%; /* 30% de largeur */
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+#searchDropdown button[type="submit"] {
+  background-color: #F25A1A;
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.3s;
+}
+
+#searchDropdown button[type="submit"]:hover {
+  background-color: #D9430F;
+}
+
+.date-block {
+  display: flex;
+  flex-direction: row; /* Les dates en colonne */
+  gap: 1rem; /* Petit espace entre les dates */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Chaque champ date */
+.date-input {
+  flex: 1; /* Prend la moitié de l'espace */
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
 
 /* ==========================================
    RESPONSIVE DESIGN - MOBILE FIRST
+   Organisation :
+   1. Variables & Base
+   2. Navigation
+   3. Hero Section
+   4. Sections de contenu
+   5. Footer
+   6. Composants réutilisables
+   7. États spéciaux
+========================================== */
+
+/* ==========================================
+   1. VARIABLES & BASE
 ========================================== */
 
 /* Réduction de la taille de base pour mobile */
@@ -736,8 +886,10 @@ footer .container {
 }
 
 /* ==========================================
-   NAVIGATION MOBILE
+   2. NAVIGATION
 ========================================== */
+
+/* Navigation principale */
 @media (max-width: 768px) {
   .nav {
     height: 3.5rem;
@@ -754,11 +906,40 @@ footer .container {
     width: 1.5rem;
     height: 1.5rem;
   }
+  
+  /* Menu burger */
+  .burger-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .burger-btn.active .burger-icon {
+    transform: rotate(90deg);
+  }
+  
+
+  /* Dropdown de recherche */
+  #searchDropdown.active {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #searchDropdown form {
+    padding: 0;
+  }
+  
+  #searchDropdown input[type="date"] {
+    width: 100%;
+  }
 }
 
 /* ==========================================
-   HERO SECTION MOBILE
+   3. HERO SECTION
 ========================================== */
+
+/* Hero principal */
 @media (max-width: 1024px) {
   .hero {
     flex-direction: column;
@@ -774,7 +955,6 @@ footer .container {
   
   .hero-content {
     position: absolute;
-    margin: 1rem 9rem;
     padding: 1rem;
     width: auto;
     backdrop-filter: blur(5px);
@@ -805,9 +985,93 @@ footer .container {
   }
 }
 
+/* Carrousel Hero */
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  height: 35.25rem;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Points du carrousel */
+.carousel-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: #F25A1A;
+  transform: scale(1.2);
+}
+
+/* Responsive carrousel */
+@media (max-width: 1024px) {
+  .hero-carousel {
+    height: 25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-carousel {
+    height: 20rem;
+  }
+  
+  .carousel-dots {
+    bottom: 1rem;
+    position: revert;
+    bottom: auto;
+    transform: none;
+    margin-top: 1rem;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
 /* ==========================================
-   ADVANTAGES SECTION MOBILE
+   4. SECTIONS DE CONTENU
 ========================================== */
+
+/* Section Avantages */
 @media (max-width: 1024px) {
   .advantages-header {
     grid-template-columns: 1fr;
@@ -825,7 +1089,7 @@ footer .container {
   }
   
   .advantages-cards {
-   align-items: unset;
+    align-items: unset;
   }
   
   .advantage-card {
@@ -851,9 +1115,14 @@ footer .container {
   }
 }
 
-/* ==========================================
-   DESTINATIONS SECTION MOBILE
-========================================== */
+@media (max-width: 720px) {
+  .advantages-cards {
+    flex-direction: column;
+    align-content: center;
+  }
+}
+
+/* Section Destinations */
 @media (max-width: 1024px) {
   .destination-header {
     grid-template-columns: 1fr;
@@ -890,9 +1159,7 @@ footer .container {
   }
 }
 
-/* ==========================================
-   STEPS SECTION MOBILE
-========================================== */
+/* Section Étapes */
 @media (max-width: 1024px) {
   .steps {
     padding: 0 1rem;
@@ -935,9 +1202,93 @@ footer .container {
   }
 }
 
-/* ==========================================
-   TESTIMONIALS SECTION MOBILE
-========================================== */
+/* Section Témoignages */
+.testimonials-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 0 50px;
+}
+
+.testimonials-slides {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.testimonial-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonial-slide.active {
+  opacity: 1;
+}
+
+.testimonial-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #F25A1A;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0rem 1rem;
+}
+
+.testimonial-arrow:hover {
+  background: #D9430F;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-arrow {
+  left: 0;
+}
+
+.next-arrow {
+  right: 0;
+}
+
+.testimonial-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 2rem;
+}
+
+.testimonial-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ddd;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.testimonial-dot.active {
+  background: #F25A1A;
+  transform: scale(1.2);
+}
+
 @media (max-width: 1024px) {
   .testimonials-header {
     grid-template-columns: 1fr;
@@ -975,9 +1326,48 @@ footer .container {
   }
 }
 
-/* ==========================================
-   FINAL CTA SECTION MOBILE
-========================================== */
+@media (max-width: 768px) {
+  .testimonials-carousel {
+    padding: 0 40px;
+  }
+  
+  .testimonials-slides {
+    height: 350px;
+  }
+  
+  .testimonial-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+  
+  .testimonial-card {
+    padding: 1.5rem;
+    margin: 0 1rem;
+  }
+  
+  .testimonial-text {
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonials-carousel {
+    padding: 0 35px;
+  }
+  
+  .testimonial-arrow {
+    width: 35px;
+    height: 35px;
+    font-size: 1.3rem;
+  }
+  
+  .testimonial-dots {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Section CTA Final */
 @media (max-width: 1024px) {
   .final-cta {
     flex-direction: column;
@@ -1015,13 +1405,14 @@ footer .container {
   .cta-image {
     width: 100%;
     height: 15rem;
-    order: -1; /* Met l'image en premier sur mobile */
+    order: -1;
   }
 }
 
 /* ==========================================
-   FOOTER MOBILE
+   5. FOOTER
 ========================================== */
+
 @media (max-width: 768px) {
   .footer {
     padding: 2rem 1rem;
@@ -1050,8 +1441,35 @@ footer .container {
 }
 
 /* ==========================================
-   TRÈS PETITS ÉCRANS (iPhone 5/SE)
+   6. COMPOSANTS RÉUTILISABLES
 ========================================== */
+
+/* Date block */
+.date-block {
+  flex-direction: column;
+}
+
+/* Carte témoignage */
+.testimonial-card {
+  width: 100%;
+  max-width: 500px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  background: white;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+/* ==========================================
+   7. ÉTATS SPÉCIAUX
+========================================== */
+
+/* Très petits écrans */
 @media (max-width: 320px) {
   .hero-title {
     font-size: 1.8rem;
@@ -1075,9 +1493,7 @@ footer .container {
   }
 }
 
-/* ==========================================
-   ORIENTATION PAYSAGE (Landscape)
-========================================== */
+/* Orientation paysage */
 @media (max-height: 500px) and (orientation: landscape) {
   .hero-background {
     height: 20rem;
@@ -1100,15 +1516,8 @@ footer .container {
   }
 }
 
-
-/* ==========================================
-   DÉSACTIVER LES HOVERS SUR MOBILE
-========================================== */
-
+/* Désactivation des hovers sur mobile */
 @media (max-width: 768px) {
-  /* Les éléments normaux gardent leurs styles */
-  /* Seulement les états :hover sont désactivés */
-  
   .btn-primary:hover,
   .btn-secondary:hover,
   .cta-button:hover {
@@ -1167,170 +1576,14 @@ footer .container {
   }
 }
 
-
-/* ===== BOUTON BURGER ===== */
-.burger-btn {
-  background: none;     /* Pas de fond */
-  border: none;         /* Pas de bordure */
-  cursor: pointer;      /* Curseur main */
-  padding: 0;           /* Pas d'espace interne */
-}
-
-/* Animation de l'icône quand on clique */
-.burger-btn.active .burger-icon {
-  transform: rotate(90deg); /* Tourne de 90 degrés */
-}
-
-/* ===== MENU DÉROULANT ===== */
-.mobile-menu {
-  display: flex;        /* Disposition verticale */
-  flex-direction: column;
-  position: fixed;      /* Fixe par rapport à l'écran */
-  top: 0;               /* En haut */
-  right: -100%;         /* CACHÉ à droite (hors écran) */
-  width: 250px;         /* Largeur du menu */
-  height: 100vh;        /* Hauteur complète de l'écran */
-  background: #001219;  /* Couleur de fond (ton noir) */
-  padding: 80px 30px 30px;
-  transition: right 0.4s ease; /* Animation pour déplacer */
-  z-index: 1000;        /* Au-dessus de tout */
-}
-
-/* Quand le menu est actif */
-.mobile-menu.active {
-  right: 0;  /* AFFICHÉ : vient de la droite */
-}
-
-/* ===== LIENS DU MENU ===== */
-.mobile-menu a {
-  padding: 15px 0;
-  color: white;
-  font-family: 'Poppins', sans-serif;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-  opacity: 0;           /* Invisible au départ */
-  transform: translateX(20px); /* Décalé vers la droite */
-}
-
-/* Animation quand le menu s'ouvre */
-.mobile-menu.active a {
-  opacity: 1;           /* Devient visible */
-  transform: translateX(0); /* Revient en place */
-}
-
-
-/* ==========================================
-   CARROUSEL HERO
-========================================== */
-
-/* Conteneur principal */
-.hero-carousel {
-  position: relative;
-  width: 100%;
-  height: 35.25rem; /* 564px / 16 */
-  overflow: hidden;
-  border-radius: 1.5rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Slides */
-.carousel-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-.carousel-slide.active {
-  opacity: 1;
-}
-
-/* Images des slides */
-.carousel-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Points indicateurs */
-.carousel-dots {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  z-index: 10;
-}
-
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.dot.active {
-  background: #F25A1A;
-  transform: scale(1.2);
-}
-
-/* Position du contenu hero par-dessus le carrousel */
-.hero-content {
-  position: absolute;
-  z-index: 5;
-  /* Les autres styles restent les mêmes */
-}
-
-/* ==========================================
-   RESPONSIVE CARROUSEL
-========================================== */
-
-@media (max-width: 1024px) {
-  .hero-carousel {
-    height: 25rem;
-  }
-  
-
-  }
-  
-
-  
-
-@media (max-width: 768px) {
-  .hero-carousel {
-    height: 20rem;
-  }
-  
-
-  
-  .carousel-dots {
-    bottom: 10px;
-  }
-  
-  .dot {
-    width: 10px;
-    height: 10px;
-  }
-}
-
-/* ==========================================
-   PAGE DE CHARGEMENT
-========================================== */
-
+/* Page de chargement */
 .loading-screen {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: #FFFFFF; /* FOND BLANC */
+  background: #FFFFFF;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1343,14 +1596,12 @@ footer .container {
   visibility: hidden;
 }
 
-/* Conteneur du loader */
 .loader {
   text-align: center;
   max-width: 300px;
   padding: 2rem;
 }
 
-/* Animation avion */
 .plane {
   position: relative;
   width: 120px;
@@ -1362,7 +1613,7 @@ footer .container {
 
 .wing {
   position: absolute;
-  background: #F25A1A; /* Orange */
+  background: #F25A1A;
   border-radius: 3px;
 }
 
@@ -1389,25 +1640,23 @@ footer .container {
   transform: translateX(-50%);
   width: 50px;
   height: 30px;
-  background: #F25A1A; /* Orange */
+  background: #F25A1A;
   border-radius: 50% 50% 10px 10px;
 }
 
-/* Texte */
 .loading-text {
   font-family: 'Poppins', sans-serif;
   font-size: 1.2rem;
   margin-bottom: 1.5rem;
   letter-spacing: 1px;
   animation: pulse 1.5s infinite;
-  color: #333333; /* Gris foncé */
+  color: #333333;
 }
 
-/* Barre de progression */
 .progress-bar {
   width: 100%;
   height: 4px;
-  background: rgba(0, 0, 0, 0.1); /* Gris très clair */
+  background: rgba(0, 0, 0, 0.1);
   border-radius: 2px;
   overflow: hidden;
 }
@@ -1415,12 +1664,12 @@ footer .container {
 .progress-fill {
   width: 0%;
   height: 100%;
-  background: #F25A1A; /* Orange */
+  background: #F25A1A;
   border-radius: 2px;
   animation: loading 2.5s ease-in-out;
 }
 
-/* Animations (restent identiques) */
+/* Animations */
 @keyframes fly {
   0%, 100% {
     transform: translateY(0) rotate(0);
@@ -1451,157 +1700,5 @@ footer .container {
   }
   100% {
     width: 100%;
-  }
-}
-
-/* ==========================================
-   CARROUSEL TÉMOIGNAGES
-========================================== */
-
-.testimonials-carousel {
-  position: relative;
-  width: 100%;
-  max-width: 800px;
-  margin: 4rem auto;
-  padding: 0 50px;
-}
-
-.testimonials-slides {
-  position: relative;
-  width: 100%;
-  height: 300px;
-  overflow: hidden;
-}
-
-.testimonial-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.testimonial-slide.active {
-  opacity: 1;
-}
-
-/* Carte témoignage (garder tes styles existants) */
-.testimonial-card {
-  width: 100%;
-  max-width: 500px;
-  padding: 2rem;
-  text-align: center;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-  background: white;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
-}
-
-.testimonial-card:hover {
-  transform: translateY(-5px);
-}
-
-/* Flèches */
-.testimonial-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #F25A1A;
-  border: none;
-  color: white;
-  font-size: 1.8rem;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 10;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.testimonial-arrow:hover {
-  background: #D9430F;
-  transform: translateY(-50%) scale(1.1);
-}
-
-.prev-arrow {
-  left: 0;
-}
-
-.next-arrow {
-  right: 0;
-}
-
-/* Points indicateurs */
-.testimonial-dots {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 2rem;
-}
-
-.testimonial-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #ddd;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.testimonial-dot.active {
-  background: #F25A1A;
-  transform: scale(1.2);
-}
-
-/* ==========================================
-   RESPONSIVE CARROUSEL TÉMOIGNAGES
-========================================== */
-
-@media (max-width: 768px) {
-  .testimonials-carousel {
-    padding: 0 40px;
-  }
-  
-  .testimonials-slides {
-    height: 350px; /* Plus haut pour mobile */
-  }
-  
-  .testimonial-arrow {
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
-  }
-  
-  .testimonial-card {
-    padding: 1.5rem;
-    margin: 0 1rem;
-  }
-  
-  .testimonial-text {
-    font-size: 1rem !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .testimonials-carousel {
-    padding: 0 35px;
-  }
-  
-  .testimonial-arrow {
-    width: 35px;
-    height: 35px;
-    font-size: 1.3rem;
-  }
-  
-  .testimonial-dots {
-    margin-top: 1.5rem;
   }
 }

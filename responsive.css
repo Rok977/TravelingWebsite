@@ -1,0 +1,919 @@
+
+/* ==========================================
+   RESPONSIVE DESIGN - MOBILE FIRST
+========================================== */
+
+/* Réduction de la taille de base pour mobile */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+/* ==========================================
+   NAVIGATION MOBILE
+========================================== */
+@media (max-width: 768px) {
+  .nav {
+    height: 3.5rem;
+  }
+  
+  .nav-links {
+    gap: 2rem;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0 1rem;
+  }
+  
+  .nav-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+#searchDropdown.active {
+ display:flex;
+ flex-direction: column;
+  }
+  
+  #searchDropdown form {
+    padding: 0; /* Enlève le padding pour mobile */
+  }
+
+  .date-block{
+    flex-direction: column;
+    }
+
+    #searchDropdown input[type="date"] {
+      width: 100%;
+}
+
+/* ==========================================
+   HERO SECTION MOBILE
+========================================== */
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-background {
+    height: 25rem;
+    border-radius: 1rem;
+  }
+  
+  .hero-content {
+    position: absolute;
+    padding: 1rem;
+    width: auto;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .hero-description {
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  .btn {
+    width: 100%;
+    max-width: 200px;
+    justify-content: center;
+    padding: 0.8rem 1rem;
+  }
+}
+
+/* ==========================================
+   ADVANTAGES SECTION MOBILE
+========================================== */
+@media (max-width: 1024px) {
+  .advantages-header {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .advantages-title {
+    padding: 1rem;
+    font-size: 2.5rem;
+  }
+  
+  .advantages-description {
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .advantages-cards {
+   align-items: unset;
+  }
+  
+  .advantage-card {
+    height: auto !important;
+    min-height: 10rem;
+    padding: 1.5rem;
+  }
+  
+  .advantage-card-title {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  
+  .advantage-card-description {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .advantage-icon {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+@media (max-width: 720px) {
+  .advantages-cards {
+    flex-direction: column;
+    align-content: center;
+  }
+}
+
+
+/* ==========================================
+   DESTINATIONS SECTION MOBILE
+========================================== */
+@media (max-width: 1024px) {
+  .destination-header {
+    grid-template-columns: 1fr;
+  }
+  
+  .destination-title {
+    padding: 1rem;
+    font-size: 2.5rem;
+  }
+  
+  .destination-description {
+    padding: 2rem 1rem;
+  }
+  
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 2rem 1rem;
+    padding: 0;
+  }
+  
+  .dest-card img {
+    height: 15rem;
+  }
+  
+  .more-link {
+    height: 3rem;
+    justify-content: center;
+  }
+  
+  .more-link a {
+    margin-right: 0;
+    font-size: 0.9rem;
+  }
+}
+
+/* ==========================================
+   STEPS SECTION MOBILE
+========================================== */
+@media (max-width: 1024px) {
+  .steps {
+    padding: 0 1rem;
+  }
+  
+  .steps .container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  
+  .step-card {
+    height: auto;
+    min-height: 12rem;
+    padding: 1.5rem;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .step-card1 {
+    height: 5rem;
+    min-height: auto;
+  }
+  
+  .step-number {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .step-title {
+    text-align: center;
+    margin-top: 0;
+    font-size: 2rem;
+  }
+  
+  .step-desc {
+    text-align: center;
+    font-size: 0.9rem;
+  }
+}
+
+/* ==========================================
+   TESTIMONIALS SECTION MOBILE
+========================================== */
+@media (max-width: 1024px) {
+  .testimonials-header {
+    grid-template-columns: 1fr;
+  }
+  
+  .frame-left,
+  .frame-right {
+    display: none;
+  }
+  
+  .frame-center {
+    padding: 2rem 1rem;
+    background-color: #001219;
+    color: white;
+  }
+  
+  .testimonials-cards {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 1rem;
+    margin: 2rem 0;
+  }
+  
+  .testimonial-card {
+    padding: 1.5rem;
+  }
+  
+  .testimonial-text {
+    font-size: 1rem;
+  }
+  
+  .testimonial-avatar {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* ==========================================
+   FINAL CTA SECTION MOBILE
+========================================== */
+@media (max-width: 1024px) {
+  .final-cta {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .final-cta .container {
+    width: 100%;
+    height: auto;
+    padding: 2rem 1rem;
+  }
+  
+  .cta-title {
+    font-size: 2rem;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .cta-bottom-frame {
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .cta-description {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+  
+  .cta-button {
+    margin: 0;
+    padding: 0.8rem 1.5rem;
+  }
+  
+  .cta-image {
+    width: 100%;
+    height: 15rem;
+    order: -1; /* Met l'image en premier sur mobile */
+  }
+}
+
+/* ==========================================
+   FOOTER MOBILE
+========================================== */
+@media (max-width: 768px) {
+  .footer {
+    padding: 2rem 1rem;
+    align-items: center;
+  }
+  
+  footer .container {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .footer-links,
+  .footer-socials {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .footer-copy {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+}
+
+/* ==========================================
+   TRÈS PETITS ÉCRANS (iPhone 5/SE)
+========================================== */
+@media (max-width: 320px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-background {
+    height: 20rem;
+  }
+  
+  .advantages-title,
+  .destination-title {
+    font-size: 2rem;
+  }
+  
+  .step-title {
+    font-size: 1.8rem;
+  }
+  
+  .cta-title {
+    font-size: 1.8rem;
+  }
+}
+
+/* ==========================================
+   ORIENTATION PAYSAGE (Landscape)
+========================================== */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-background {
+    height: 20rem;
+  }
+  
+  .hero-content {
+    padding: 0.5rem;
+    margin: 0.5rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .advantage-card,
+  .step-card {
+    min-height: 8rem;
+    padding: 1rem;
+  }
+}
+
+
+/* ==========================================
+   DÉSACTIVER LES HOVERS SUR MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+  /* Les éléments normaux gardent leurs styles */
+  /* Seulement les états :hover sont désactivés */
+  
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .cta-button:hover {
+    transform: none;
+    box-shadow: none;
+    background-color: inherit;
+    border-color: inherit;
+  }
+  
+  .more-link a:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .nav-links li a:hover,
+  .nav-icon:hover {
+    transform: none;
+    filter: none;
+  }
+  
+  .advantage-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .advantage-card:hover .advantage-icon {
+    transform: none;
+    filter: none;
+  }
+  
+  .advantage-card:hover .advantage-card-title,
+  .advantage-card:hover .advantage-card-description {
+    transform: none;
+    color: inherit;
+    opacity: 1;
+  }
+  
+  .dest-card:hover {
+    transform: none;
+  }
+  
+  .dest-card:hover img {
+    transform: none;
+    filter: none;
+  }
+  
+  .testimonial-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .step-card:hover .step-title span:nth-child(1),
+  .step-card:hover .step-title span:nth-child(2),
+  .step-card:hover .step-desc {
+    transform: none;
+  }
+}
+
+
+/* ===== BOUTON BURGER ===== */
+.burger-btn {
+  background: none;     /* Pas de fond */
+  border: none;         /* Pas de bordure */
+  cursor: pointer;      /* Curseur main */
+  padding: 0;           /* Pas d'espace interne */
+}
+
+/* Animation de l'icône quand on clique */
+.burger-btn.active .burger-icon {
+  transform: rotate(90deg); /* Tourne de 90 degrés */
+}
+
+/* ===== MENU DÉROULANT ===== */
+.mobile-menu {
+  display: flex;        /* Disposition verticale */
+  flex-direction: column;
+  position: fixed;      /* Fixe par rapport à l'écran */
+  top: 0;               /* En haut */
+  right: -100%;         /* CACHÉ à droite (hors écran) */
+  width: 250px;         /* Largeur du menu */
+  height: 100vh;        /* Hauteur complète de l'écran */
+  background: #001219;  /* Couleur de fond (ton noir) */
+  padding: 80px 30px 30px;
+  transition: right 0.4s ease; /* Animation pour déplacer */
+  z-index: 1000;        /* Au-dessus de tout */
+}
+
+/* Quand le menu est actif */
+.mobile-menu.active {
+  right: 0;  /* AFFICHÉ : vient de la droite */
+}
+
+/* ===== LIENS DU MENU ===== */
+.mobile-menu a {
+  padding: 15px 0;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  opacity: 0;           /* Invisible au départ */
+  transform: translateX(20px); /* Décalé vers la droite */
+}
+
+/* Animation quand le menu s'ouvre */
+.mobile-menu.active a {
+  opacity: 1;           /* Devient visible */
+  transform: translateX(0); /* Revient en place */
+}
+
+
+/* ==========================================
+   CARROUSEL HERO
+========================================== */
+
+/* Conteneur principal */
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  height: 35.25rem; /* 564px / 16 */
+  overflow: hidden;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Slides */
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+/* Images des slides */
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Points indicateurs */
+.carousel-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: #F25A1A;
+  transform: scale(1.2);
+}
+
+/* Position du contenu hero par-dessus le carrousel */
+.hero-content {
+  position: absolute;
+  z-index: 5;
+  /* Les autres styles restent les mêmes */
+}
+
+/* ==========================================
+   RESPONSIVE CARROUSEL
+========================================== */
+
+@media (max-width: 1024px) {
+  .hero-carousel {
+    height: 25rem;
+    
+  }
+  
+
+
+  }
+  
+
+  
+
+@media (max-width: 768px) {
+  .hero-carousel {
+    height: 20rem;
+  }
+  
+
+  
+  .carousel-dots {
+    bottom: 1rem;
+    position: revert;
+    bottom: auto;
+    transform: none;
+    margin-top: 1rem;
+  
+  }
+
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* ==========================================
+   PAGE DE CHARGEMENT
+========================================== */
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF; /* FOND BLANC */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.loading-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Conteneur du loader */
+.loader {
+  text-align: center;
+  max-width: 300px;
+  padding: 2rem;
+}
+
+/* Animation avion */
+.plane {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 2rem;
+  animation: fly 2s infinite ease-in-out;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
+}
+
+.wing {
+  position: absolute;
+  background: #F25A1A; /* Orange */
+  border-radius: 3px;
+}
+
+.left-wing {
+  width: 50px;
+  height: 15px;
+  top: 40px;
+  left: 15px;
+  transform: rotate(-20deg);
+}
+
+.right-wing {
+  width: 50px;
+  height: 15px;
+  top: 40px;
+  right: 15px;
+  transform: rotate(20deg);
+}
+
+.plane-body {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 30px;
+  background: #F25A1A; /* Orange */
+  border-radius: 50% 50% 10px 10px;
+}
+
+/* Texte */
+.loading-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+  animation: pulse 1.5s infinite;
+  color: #333333; /* Gris foncé */
+}
+
+/* Barre de progression */
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.1); /* Gris très clair */
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  background: #F25A1A; /* Orange */
+  border-radius: 2px;
+  animation: loading 2.5s ease-in-out;
+}
+
+/* Animations (restent identiques) */
+@keyframes fly {
+  0%, 100% {
+    transform: translateY(0) rotate(0);
+  }
+  25% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+  75% {
+    transform: translateY(5px) rotate(-3deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes loading {
+  0% {
+    width: 0%;
+  }
+  70% {
+    width: 90%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* ==========================================
+   CARROUSEL TÉMOIGNAGES
+========================================== */
+
+.testimonials-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 0 50px;
+}
+
+.testimonials-slides {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.testimonial-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonial-slide.active {
+  opacity: 1;
+}
+
+/* Carte témoignage (garder tes styles existants) */
+.testimonial-card {
+  width: 100%;
+  max-width: 500px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  background: white;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Flèches */
+.testimonial-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #F25A1A;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0rem 1rem;
+}
+
+.testimonial-arrow:hover {
+  background: #D9430F;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-arrow {
+  left: 0;
+}
+
+.next-arrow {
+  right: 0;
+}
+
+/* Points indicateurs */
+.testimonial-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 2rem;
+}
+
+.testimonial-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ddd;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.testimonial-dot.active {
+  background: #F25A1A;
+  transform: scale(1.2);
+}
+
+/* ==========================================
+   RESPONSIVE CARROUSEL TÉMOIGNAGES
+========================================== */
+
+@media (max-width: 768px) {
+  .testimonials-carousel {
+    padding: 0 40px;
+  }
+  
+  .testimonials-slides {
+    height: 350px; /* Plus haut pour mobile */
+  }
+  
+  .testimonial-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+  
+  .testimonial-card {
+    padding: 1.5rem;
+    margin: 0 1rem;
+  }
+  
+  .testimonial-text {
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonials-carousel {
+    padding: 0 35px;
+  }
+  
+  .testimonial-arrow {
+    width: 35px;
+    height: 35px;
+    font-size: 1.3rem;
+  }
+  
+  .testimonial-dots {
+    margin-top: 1.5rem;
+  }
+}
+}
