@@ -10,9 +10,12 @@
 
 <!-- Poppins -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Molle:ital@1&family=Monoton&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mrs+Sheppards&family=Noto+Sans+JP:wght@100..900&family=Permanent+Marker&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <script src="main.js"></script>
-<body>
 <body>
   <!-- PAGE DE CHARGEMENT -->
   <div class="loading-screen" id="loadingScreen">
@@ -37,11 +40,12 @@
   
   <header class="header">
     <nav class="nav">
-      <div class="logo">
-
-      </div>
-
     <ul class="nav-links">
+
+      <li class = "logo"> 
+        <H2>TRAVEL</H2>
+      </li>
+       
       <li>
         <a href="#home" target="_blank">
           <img src="Asset/icons/home.png" alt="Accueil" class="nav-icon">
@@ -78,6 +82,18 @@
 <div class="menu-overlay" id="menuOverlay"></div>
   </header>
 
+  <div id="searchDropdown" class="search-dropdown">
+  <form>
+    <input type="text" placeholder="Destination...">
+      <div class="date-block">
+        <p>Arrivée</p>
+        <input type="date" class="date-input" placeholder="Arrivée">
+        <p>Départ</p>
+        <input type="date" class="date-input" placeholder="Départ">
+      </div>
+    <button type="submit">Chercher</button>
+  </form>
+</div>
   <main>
 
  <section class="hero">
@@ -98,12 +114,6 @@
       <img src="Asset/hero/image-hero3.jpg" alt="Destination 3" class="carousel-img">
     </div>
     
-    <!-- Points indicateurs -->
-    <div class="carousel-dots">
-      <span class="dot active" data-slide="0"></span>
-      <span class="dot" data-slide="1"></span>
-      <span class="dot" data-slide="2"></span>
-    </div>
   </div>
 
   <!-- Contenu hero (inchangé) -->
@@ -117,6 +127,12 @@
       <a href="404.html" class="btn btn-secondary">plus d'infos</a>
     </div>
   </div>
+      <!-- Points indicateurs -->
+    <div class="carousel-dots">
+      <span class="dot active" data-slide="0"></span>
+      <span class="dot" data-slide="1"></span>
+      <span class="dot" data-slide="2"></span>
+    </div>
 </section>
 
 <section class="advantages">
@@ -177,7 +193,7 @@
   <!-- Lisbonne -->
   <a href="404.html" class="dest-card-link">
     <div class="dest-card">
-      <img src="Asset/Destinations/Lisbonne.png" alt="Lisbonne">
+      <img src="Asset/destinations/Lisbonne.png" alt="Lisbonne">
       <h3 class="card-title">Lisbonne</h3>
       <p class="card-desc">rooftops, soleil, remote life.</p>
     </div>
@@ -186,7 +202,7 @@
   <!-- Tokyo -->
   <a href="404.html" class="dest-card-link">
     <div class="dest-card">
-      <img src="Asset/Destinations/Tokyo.png" alt="Tokyo">
+      <img src="Asset/destinations/Tokyo.png" alt="Tokyo">
       <h3 class="card-title">Tokyo</h3>
       <p class="card-desc">culture, food, néons partout.</p>
     </div>
@@ -195,7 +211,7 @@
   <!-- Marrakech -->
   <a href="404.html" class="dest-card-link">
     <div class="dest-card">
-      <img src="Asset/Destinations/Marrakech.png" alt="Marrakech">
+      <img src="Asset/destinations/Marrakech.png" alt="Marrakech">
       <h3 class="card-title">Marrakech</h3>
       <p class="card-desc">médinas, souks, couchers de soleil.</p>
     </div>
@@ -204,7 +220,7 @@
   <!-- Bali -->
   <a href="404.html" class="dest-card-link">
     <div class="dest-card">
-      <img src="Asset/Destinations/Bali.png" alt="Bali">
+      <img src="Asset/destinations/Bali.png" alt="Bali">
       <h3 class="card-title">Bali</h3>
       <p class="card-desc">plages, rizières, spiritualité.</p>
     </div>
