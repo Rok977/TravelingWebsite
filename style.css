@@ -303,6 +303,17 @@ p{
   display: block;
 }
 
+  /* Menu burger */
+  .burger-btn {
+    background: unset;
+    border: unset;
+    padding: 0;
+  }
+  
+  .burger-btn.active .burger-icon {
+    transform: rotate(90deg);
+  }
+  
 
 /* ==========================================
    HERO
@@ -908,18 +919,7 @@ footer .container {
     height: 1.5rem;
   }
   
-  /* Menu burger */
-  .burger-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-  }
-  
-  .burger-btn.active .burger-icon {
-    transform: rotate(90deg);
-  }
-  
+
 
   /* Dropdown de recherche */
   #searchDropdown.active {
