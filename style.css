@@ -733,20 +733,20 @@ height:100%;}
 
 footer .container {
   display: flex;
-  gap: 15rem;
-  flex-direction: row;
+  gap: 1rem;
+  flex-direction: column;
   justify-content: center;
 }
 .footer-logo {}
 .footer-links {
   display: flex;
   gap: 1.5rem;
-  flex-direction: column;
+  flex-direction: row;
 }
 .footer-socials {
   display: flex;
   gap: 1rem;
-  flex-direction: column;
+  flex-direction: row;
 }
 .footer-copy {
   margin-top: 1.5rem;
